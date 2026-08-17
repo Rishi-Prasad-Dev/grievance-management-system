@@ -1,0 +1,440 @@
+/* TrackComplaintStatus.css - Complete Blue Theme */
+
+/* Layout */
+.tcs-layout {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e3f2fd, #f0f8ff);
+}
+
+/* Sidebar */
+.tcs-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+/* Content area */
+.tcs-content {
+  flex: 1;
+  padding: 32px 40px;
+  background: #ffffff;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  box-shadow: -8px 0 32px rgba(33, 150, 243, 0.08);
+  overflow-y: auto;
+  max-width: 1200px;
+  margin-right: auto;
+}
+
+/* Header */
+.tcs-header {
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #f8fdff, #e3f2fd);
+  padding: 32px;
+  border-radius: 20px;
+  border-left: 6px solid #2196f3;
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.1);
+  text-align: center;
+}
+
+.tcs-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1565c0;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.tcs-subtitle {
+  font-size: 18px;
+  color: #2196f3;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Loading state */
+.tcs-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  color: #1565c0;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.tcs-spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #bbdefb;
+  border-top: 6px solid #2196f3;
+  border-radius: 50%;
+  animation: tcs-spin 1s linear infinite;
+  margin-bottom: 24px;
+}
+
+@keyframes tcs-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error state */
+.tcs-error {
+  background: #ffebee;
+  color: #c62828;
+  padding: 20px 24px;
+  border-radius: 12px;
+  border-left: 4px solid #f44336;
+  margin-bottom: 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tcs-error-icon {
+  font-size: 24px;
+  margin-right: 12px;
+}
+
+.tcs-retry-btn {
+  background: #2196f3;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.tcs-retry-btn:hover {
+  background: #1976d2;
+}
+
+/* Empty state */
+.tcs-empty {
+  text-align: center;
+  padding: 80px 40px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.08);
+}
+
+.tcs-empty-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+  color: #2196f3;
+  opacity: 0.8;
+}
+
+.tcs-empty-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1565c0;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+.tcs-empty-text {
+  font-size: 16px;
+  color: #2196f3;
+  margin: 0 0 24px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.tcs-cta-link {
+  display: inline-block;
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: #ffffff;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3);
+}
+
+.tcs-cta-link:hover {
+  background: linear-gradient(135deg, #45a049, #388e3c);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(76, 175, 80, 0.4);
+}
+
+/* Complaints container */
+.tcs-complaints-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+/* Complaint cards */
+.tcs-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.12);
+  border: 1px solid #e3f2fd;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-indent: 20px;
+}
+
+.tcs-card:hover,
+.tcs-card:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(33, 150, 243, 0.2);
+  border-color: #bbdefb;
+  outline: none;
+}
+
+.tcs-card:focus {
+  border-color: #2196f3;
+  box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.2), 0 16px 32px rgba(33, 150, 243, 0.2);
+}
+
+/* Card header */
+.tcs-card-header {
+  background: linear-gradient(135deg, #f8fdff, #e3f2fd);
+  padding: 24px 28px;
+  border-bottom: 2px solid #e3f2fd;
+}
+
+.tcs-complaint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.tcs-card-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1565c0;
+  margin: 0;
+  flex: 1;
+  text-transform: capitalize;
+  line-height: 1.4;
+}
+
+.tcs-status {
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Status colors */
+.tcs-status-pending { background: #ff9800; }
+.tcs-status-acknowledged { background: #9c27b0; }
+.tcs-status-in-progress { background: #2196f3; }
+.tcs-status-on-hold { background: #f44336; }
+.tcs-status-resolved { background: #4caf50; }
+.tcs-status-closed { background: #757575; }
+.tcs-status-rejected { background: #f44336; }
+
+.tcs-complaint-dates {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2196f3;
+}
+
+/* Card body */
+.tcs-card-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tcs-complaint-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.tcs-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tcs-meta-item.tcs-full-width {
+  grid-column: 1 / -1;
+}
+
+.tcs-meta-label {
+  color: #1565c0;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tcs-meta-value {
+  color: #424242;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.tcs-description {
+  background: #f0f7ff;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #64b5f6;
+}
+
+.tcs-description strong {
+  color: #1565c0;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.tcs-description p {
+  margin: 0;
+  color: #424242;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+/* Legend section */
+.tcs-legend {
+  background: linear-gradient(135deg, #f8fdff, #e3f2fd);
+  padding: 32px;
+  border-radius: 20px;
+  border-left: 6px solid #2196f3;
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.1);
+}
+
+.tcs-legend-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1565c0;
+  margin: 0 0 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tcs-legend-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.tcs-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  color: #1565c0;
+  background: #ffffff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.tcs-legend-item:hover {
+  transform: translateY(-2px);
+}
+
+.tcs-badge {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Badge colors matching status colors */
+.tcs-badge-pending { background: #ff9800; }
+.tcs-badge-acknowledged { background: #9c27b0; }
+.tcs-badge-in-progress { background: #2196f3; }
+.tcs-badge-on-hold { background: #f44336; }
+.tcs-badge-resolved { background: #4caf50; }
+.tcs-badge-closed { background: #757575; }
+.tcs-badge-rejected { background: #f44336; }
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tcs-content {
+    margin-left: 0;
+    padding: 20px;
+    border-radius: 0;
+  }
+
+  .tcs-title {
+    font-size: 28px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .tcs-complaint-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .tcs-complaint-dates {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .tcs-complaint-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .tcs-legend-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .tcs-card-body {
+    padding: 20px;
+  }
+
+  .tcs-legend {
+    padding: 20px;
+  }
+
+  .tcs-legend-title {
+    font-size: 20px;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

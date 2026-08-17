@@ -1,0 +1,538 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ============================================================================ */
+/* RESET AND BASE STYLES */
+/* ============================================================================ */
+
+.wrapper, .wrapper * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ============================================================================ */
+/* ENHANCED COLOR THEMES */
+/* ============================================================================ */
+
+.wrapper.admin {
+  --primary-color: #dc2626;     /* Enhanced red */
+  --primary-dark: #b91c1c;      /* Darker red */
+  --primary-light: #fecaca;     /* Light red */
+  --border-color: #dc2626;
+  --bg-light: #fafafa;
+  --input-bg: #f4f4f5;
+  --text-dark: #18181b;
+  --text-gray: #52525b;
+  --shadow-color: rgba(220, 38, 38, 0.15);
+}
+
+.wrapper.student {
+  --primary-color: #2563eb;     /* Enhanced blue */
+  --primary-dark: #1d4ed8;      /* Darker blue */
+  --primary-light: #bfdbfe;     /* Light blue */
+  --border-color: #2563eb;
+  --bg-light: #fafafa;
+  --input-bg: #f4f4f5;
+  --text-dark: #18181b;
+  --text-gray: #52525b;
+  --shadow-color: rgba(37, 99, 235, 0.15);
+}
+
+.wrapper.faculty {
+  --primary-color: #16a34a;     /* Enhanced green */
+  --primary-dark: #15803d;      /* Darker green */
+  --primary-light: #bbf7d0;     /* Light green */
+  --border-color: #16a34a;
+  --bg-light: #fafafa;
+  --input-bg: #f4f4f5;
+  --text-dark: #18181b;
+  --text-gray: #52525b;
+  --shadow-color: rgba(22, 163, 74, 0.15);
+}
+
+/* ============================================================================ */
+/* WRAPPER CONTAINER */
+/* ============================================================================ */
+
+.wrapper {
+  position: relative;
+  width: 750px;
+  height: 450px;
+  background: #fff;
+  border: 3px solid var(--border-color);
+  box-shadow: 0 10px 30px var(--shadow-color);
+  overflow: hidden;
+  background: var(--bg-light);
+  border-radius: 12px;
+}
+
+.center-container {
+  min-height: 80vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+/* ============================================================================ */
+/* FORM BOXES */
+/* ============================================================================ */
+
+.wrapper .form-box {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wrapper.admin .form-box.login,
+.wrapper.student .form-box.login,
+.wrapper.faculty .form-box.login {
+  left: 0;
+  padding: 0 60px 0 40px;
+}
+
+.wrapper.admin .form-box.register,
+.wrapper.student .form-box.register,
+.wrapper.faculty .form-box.register {
+  right: 0;
+  padding: 0 40px 0 60px;
+  pointer-events: none;
+}
+
+.wrapper.admin.active .form-box.register,
+.wrapper.student.active .form-box.register,
+.wrapper.faculty.active .form-box.register {
+  pointer-events: auto;
+}
+
+/* ============================================================================ */
+/* ANIMATIONS - Preserved original animations */
+/* ============================================================================ */
+
+.wrapper.admin .form-box.login .animation-admin,
+.wrapper.student .form-box.login .animation-student,
+.wrapper.faculty .form-box.login .animation-faculty {
+  transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+  transition: 0.7s ease;
+  transition-delay: calc(0.1s * var(--j));
+}
+
+.wrapper.admin.active .form-box.login .animation-admin,
+.wrapper.student.active .form-box.login .animation-student,
+.wrapper.faculty.active .form-box.login .animation-faculty {
+  transform: translateX(-120%);
+  opacity: 0;
+  filter: blur(10px);
+  transition-delay: calc(0.1s * var(--i));
+}
+
+.wrapper.admin .form-box.register .animation-admin,
+.wrapper.student .form-box.register .animation-student,
+.wrapper.faculty .form-box.register .animation-faculty {
+  transform: translateX(120%);
+  opacity: 0;
+  filter: blur(10px);
+  transition: 0.7s ease;
+  transition-delay: calc(0.1s * var(--j));
+}
+
+.wrapper.admin.active .form-box.register .animation-admin,
+.wrapper.student.active .form-box.register .animation-student,
+.wrapper.faculty.active .form-box.register .animation-faculty {
+  transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+  transition-delay: calc(0.1s * var(--i));
+}
+
+/* ============================================================================ */
+/* HEADINGS */
+/* ============================================================================ */
+
+.form-box h2 {
+  font-size: 32px;
+  color: var(--text-dark);
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* ============================================================================ */
+/* ENHANCED INPUT STYLES */
+/* ============================================================================ */
+
+.form-box .input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 25px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: var(--input-bg);
+  border: 2px solid #e4e4e7;
+  outline: none;
+  padding: 0 40px 0 15px;
+  font-size: 16px;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+  border-color: var(--primary-color);
+  background: #fff;
+  box-shadow: 0 0 8px var(--shadow-color);
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--text-gray);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  background: transparent;
+  padding: 0 5px;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -10px;
+  left: 10px;
+  color: var(--primary-color);
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--bg-light);
+}
+
+.input-box i {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #a1a1aa;
+  transition: all 0.3s ease;
+}
+
+.input-box input:focus ~ i,
+.input-box input:valid ~ i {
+  color: var(--primary-color);
+}
+
+/* ============================================================================ */
+/* ENHANCED BUTTON STYLES */
+/* ============================================================================ */
+
+.btn {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 700;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============================================================================ */
+/* LINK STYLES */
+/* ============================================================================ */
+
+.form-box .logreg-link {
+  font-size: 14.5px;
+  color: var(--text-gray);
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+.logreg-link p a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.logreg-link p a:hover {
+  text-decoration: underline;
+  color: var(--primary-dark);
+}
+
+/* ============================================================================ */
+/* INFO TEXT SECTIONS */
+/* ============================================================================ */
+
+.wrapper .info-text {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wrapper.admin .info-text.login,
+.wrapper.student .info-text.login,
+.wrapper.faculty .info-text.login {
+  right: 0;
+  text-align: right;
+  padding: 0 40px 60px 150px;
+}
+
+.wrapper.admin .info-text.register,
+.wrapper.student .info-text.register,
+.wrapper.faculty .info-text.register {
+  left: 0;
+  text-align: left;
+  padding: 0 150px 60px 40px;
+  pointer-events: none;
+}
+
+.wrapper.admin.active .info-text.register,
+.wrapper.student.active .info-text.register,
+.wrapper.faculty.active .info-text.register {
+  pointer-events: auto;
+}
+
+/* Info text animations - preserved */
+.wrapper.admin .info-text.login .animation-admin,
+.wrapper.student .info-text.login .animation-student,
+.wrapper.faculty .info-text.login .animation-faculty {
+  transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+  transition: 0.7s ease;
+  transition-delay: calc(0.1s * var(--j));
+}
+
+.wrapper.admin.active .info-text.login .animation-admin,
+.wrapper.student.active .info-text.login .animation-student,
+.wrapper.faculty.active .info-text.login .animation-faculty {
+  transform: translateX(120%);
+  opacity: 0;
+  filter: blur(10px);
+  transition-delay: calc(0.1s * var(--i));
+}
+
+.wrapper.admin .info-text.register .animation-admin,
+.wrapper.student .info-text.register .animation-student,
+.wrapper.faculty .info-text.register .animation-faculty {
+  transform: translateX(-120%);
+  opacity: 0;
+  filter: blur(10px);
+  transition: 0.7s ease;
+  transition-delay: calc(0.1s * var(--j));
+}
+
+.wrapper.admin.active .info-text.register .animation-admin,
+.wrapper.student.active .info-text.register .animation-student,
+.wrapper.faculty.active .info-text.register .animation-faculty {
+  transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+  transition-delay: calc(0.1s * var(--i));
+}
+
+/* Info text typography */
+.info-text h2 {
+  font-size: 36px;
+  color: var(--text-dark);
+  line-height: 1.3;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+
+.info-text p {
+  font-size: 16px;
+  color: var(--text-gray);
+  line-height: 1.5;
+}
+
+/* ============================================================================ */
+/* ENHANCED BACKGROUND SHAPES - Preserved animations, enhanced colors */
+/* ============================================================================ */
+
+/* ADMIN SHAPES */
+.wrapper.admin .big-animate-admin {
+  position: absolute;
+  top: -4px;
+  right: 0;
+  width: 850px;
+  height: 600px;
+  background: linear-gradient(45deg, #fef2f2 0%, var(--primary-color) 70%);
+  border-bottom: 4px solid var(--primary-color);
+  box-shadow: 0 15px 35px rgba(220, 38, 38, 0.4);
+  transform: rotate(10deg) skewY(40deg);
+  transform-origin: bottom right;
+  transition: 1.5s ease;
+  transition-delay: 1.6s;
+}
+
+.wrapper.admin.active .big-animate-admin {
+  transform: rotate(0) skewY(0);
+  transition-delay: 0.5s;
+}
+
+.wrapper.admin .big-animate2-admin {
+  position: absolute;
+  top: 100%;
+  left: 250px;
+  width: 850px;
+  height: 700px;
+  background: var(--bg-light);
+  border-top: 4px solid var(--primary-color);
+  box-shadow: 0 12px 30px rgba(220, 38, 38, 0.3);
+  transform: rotate(0) skewY(0);
+  transform-origin: bottom left;
+  transition: 1.5s ease;
+  transition-delay: 0.5s;
+}
+
+.wrapper.admin.active .big-animate2-admin {
+  transform: rotate(-11deg) skewY(-41deg);
+  transition-delay: 1s;
+}
+
+/* STUDENT SHAPES */
+.wrapper.student .big-animate-student {
+  position: absolute;
+  top: -4px;
+  right: 0;
+  width: 850px;
+  height: 600px;
+  background: linear-gradient(45deg, #eff6ff 0%, var(--primary-color) 70%);
+  border-bottom: 4px solid var(--primary-color);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
+  transform: rotate(10deg) skewY(40deg);
+  transform-origin: bottom right;
+  transition: 1.5s ease;
+  transition-delay: 1.6s;
+}
+
+.wrapper.student.active .big-animate-student {
+  transform: rotate(0) skewY(0);
+  transition-delay: 0.5s;
+}
+
+.wrapper.student .big-animate2-student {
+  position: absolute;
+  top: 100%;
+  left: 250px;
+  width: 850px;
+  height: 700px;
+  background: var(--bg-light);
+  border-top: 4px solid var(--primary-color);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.3);
+  transform: rotate(0) skewY(0);
+  transform-origin: bottom left;
+  transition: 1.5s ease;
+  transition-delay: 0.5s;
+}
+
+.wrapper.student.active .big-animate2-student {
+  transform: rotate(-11deg) skewY(-41deg);
+  transition-delay: 1s;
+}
+
+/* FACULTY SHAPES */
+.wrapper.faculty .big-animate-faculty {
+  position: absolute;
+  top: -4px;
+  right: 0;
+  width: 850px;
+  height: 600px;
+  background: linear-gradient(45deg, #f0fdf4 0%, var(--primary-color) 70%);
+  border-bottom: 4px solid var(--primary-color);
+  box-shadow: 0 15px 35px rgba(22, 163, 74, 0.4);
+  transform: rotate(10deg) skewY(40deg);
+  transform-origin: bottom right;
+  transition: 1.5s ease;
+  transition-delay: 1.6s;
+}
+
+.wrapper.faculty.active .big-animate-faculty {
+  transform: rotate(0) skewY(0);
+  transition-delay: 0.5s;
+}
+
+.wrapper.faculty .big-animate2-faculty {
+  position: absolute;
+  top: 100%;
+  left: 250px;
+  width: 850px;
+  height: 700px;
+  background: var(--bg-light);
+  border-top: 4px solid var(--primary-color);
+  box-shadow: 0 12px 30px rgba(22, 163, 74, 0.3);
+  transform: rotate(0) skewY(0);
+  transform-origin: bottom left;
+  transition: 1.5s ease;
+  transition-delay: 0.5s;
+}
+
+.wrapper.faculty.active .big-animate2-faculty {
+  transform: rotate(-11deg) skewY(-41deg);
+  transition-delay: 1s;
+}
+
+/* ============================================================================ */
+/* RESPONSIVE DESIGN */
+/* ============================================================================ */
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    min-height: 500px;
+    flex-direction: column;
+  }
+  
+  .wrapper .form-box,
+  .wrapper .info-text {
+    width: 100%;
+    position: relative;
+    padding: 40px 20px;
+  }
+  
+  .wrapper .info-text {
+    display: none; /* Hide info text on mobile */
+  }
+}

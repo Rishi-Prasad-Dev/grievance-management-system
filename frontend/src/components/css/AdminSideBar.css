@@ -1,0 +1,339 @@
+/* AdminSideBar.css - Complete Red Theme */
+
+/* Main sidebar container - fixed positioning with optimized spacing */
+.ads-sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 220px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  box-shadow: 4px 0 20px rgba(220, 53, 69, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #b71c1c, #c62828, #d32f2f);
+  color: #ffffff;
+  overflow: hidden; /* Prevent scrolling */
+  z-index: 1000;
+}
+
+/* Profile Section - Slightly reduced padding to save space */
+.ads-profile-section {
+  padding: 24px; /* Reduced from 32px 24px */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px; /* Reduced from 16px */
+  background: rgba(255, 255, 255, 0.05);
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.ads-profile-image-container {
+  width: 70px; /* Slightly reduced from 80px */
+  height: 70px; /* Slightly reduced from 80px */
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.ads-profile-image-container:hover {
+  transform: scale(1.05);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.ads-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ads-profile-placeholder {
+  font-size: 28px; /* Slightly reduced from 32px */
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ads-profile-info {
+  text-align: center;
+  width: 100%;
+}
+
+.ads-profile-info h3 {
+  color: #ffffff;
+  margin: 0 0 4px;
+  font-weight: 800;
+  font-size: 17px; /* Slightly reduced from 18px */
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.ads-profile-info p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px; /* Slightly reduced from 13px */
+  margin: 0 0 6px; /* Slightly reduced from 8px */
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.ads-user-role {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 10px; /* Slightly reduced from 11px */
+  font-weight: 700;
+  padding: 3px 10px; /* Slightly reduced from 4px 12px */
+  border-radius: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Loading State */
+.ads-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.ads-loading-spinner {
+  animation: ads-spin 1s linear infinite;
+  font-size: 20px;
+}
+
+@keyframes ads-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Navigation - Optimized spacing to fit all items */
+.ads-sidebar-nav {
+  flex: 1;
+  padding: 20px 0; /* Slightly reduced from 24px */
+  display: flex;
+  flex-direction: column;
+}
+
+.ads-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Slightly reduced from 8px */
+  flex: 1;
+  justify-content: space-evenly; /* Distribute items evenly in available space */
+}
+
+.ads-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 14px; /* Slightly reduced from 16px */
+  padding: 14px 24px; /* Slightly reduced from 16px */
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px; /* Slightly reduced from 15px */
+  transition: all 0.3s ease;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ads-nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.ads-nav-link:hover,
+.ads-nav-link.ads-active {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.ads-nav-link:hover::before,
+.ads-nav-link.ads-active::before {
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.ads-nav-link.ads-active {
+  background: rgba(255, 255, 255, 0.15);
+  font-weight: 800;
+}
+
+.ads-nav-icon {
+  font-size: 17px; /* Slightly reduced from 18px */
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.ads-nav-link:hover .ads-nav-icon,
+.ads-nav-link.ads-active .ads-nav-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Footer - Slightly reduced padding */
+.ads-sidebar-footer {
+  padding: 20px; /* Slightly reduced from 24px */
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.1);
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.ads-logout-btn {
+  width: 100%;
+  padding: 14px; /* Slightly reduced from 16px */
+  background: rgba(244, 67, 54, 0.8);
+  border: 2px solid rgba(244, 67, 54, 0.6);
+  border-radius: 12px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13px; /* Slightly reduced from 14px */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Slightly reduced from 12px */
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ads-logout-btn:hover {
+  background: rgba(244, 67, 54, 1);
+  border-color: rgba(244, 67, 54, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(244, 67, 54, 0.4);
+}
+
+.ads-logout-icon {
+  font-size: 15px; /* Slightly reduced from 16px */
+  transition: transform 0.3s ease;
+}
+
+.ads-logout-btn:hover .ads-logout-icon {
+  transform: rotate(10deg);
+}
+
+/* Scrollbar Styling - Hidden to prevent scrolling */
+.ads-sidebar::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+.ads-sidebar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ads-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.ads-sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ads-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 16px;
+    box-shadow: none;
+    background: linear-gradient(90deg, #b71c1c, #d32f2f);
+    overflow-y: visible; /* Allow scrolling on mobile if needed */
+  }
+
+  .ads-profile-section {
+    flex-direction: row;
+    text-align: left;
+    padding: 16px;
+  }
+
+  .ads-profile-image-container {
+    width: 60px;
+    height: 60px;
+  }
+
+  .ads-profile-info {
+    text-align: left;
+    flex: 1;
+  }
+
+  .ads-nav-list {
+    flex-direction: row;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .ads-nav-link {
+    padding: 12px 16px;
+    font-size: 12px;
+    border-radius: 8px;
+    transform: none;
+  }
+
+  .ads-nav-link:hover,
+  .ads-nav-link.ads-active {
+    transform: none;
+  }
+
+  .ads-sidebar-footer {
+    padding: 16px;
+  }
+
+  .ads-logout-btn {
+    padding: 12px;
+    font-size: 12px;
+  }
+}
+
+/* For shorter screens - Additional optimization */
+@media (max-height: 800px) {
+  .ads-profile-section {
+    padding: 20px;
+    gap: 10px;
+  }
+  
+  .ads-sidebar-nav {
+    padding: 16px 0;
+  }
+  
+  .ads-nav-list {
+    gap: 4px;
+  }
+  
+  .ads-nav-link {
+    padding: 12px 24px;
+  }
+  
+  .ads-sidebar-footer {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,552 @@
+/* Student Info Requests - Blue Theme */
+.sir-layout {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e3f2fd, #f0f8ff);
+}
+
+/* Main content area positioned next to fixed sidebar */
+.sir-content {
+  flex: 1;
+  margin-left: 220px;
+  padding: 32px 40px;
+  background: #ffffff;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  box-shadow: -8px 0 32px rgba(33, 150, 243, 0.08);
+  overflow-y: auto;
+  max-width: 1200px;
+  margin-right: auto;
+}
+
+/* Header section */
+.sir-header {
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #f8fdff, #e3f2fd);
+  padding: 32px;
+  border-radius: 20px;
+  border-left: 6px solid #2196f3;
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.1);
+  text-align: center;
+}
+
+.sir-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1565c0;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.sir-subtitle {
+  font-size: 18px;
+  color: #2196f3;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Loading state */
+.sir-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  color: #1565c0;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.sir-spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #bbdefb;
+  border-top: 6px solid #2196f3;
+  border-radius: 50%;
+  animation: sir-spin 1s linear infinite;
+  margin-bottom: 24px;
+}
+
+@keyframes sir-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Empty state */
+.sir-empty-state {
+  text-align: center;
+  padding: 80px 40px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.08);
+}
+
+.sir-empty-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+  color: #2196f3;
+  opacity: 0.8;
+}
+
+.sir-empty-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1565c0;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+.sir-empty-text {
+  font-size: 16px;
+  color: #2196f3;
+  margin: 0;
+  font-weight: 500;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Requests container */
+.sir-requests-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Individual request cards */
+.sir-request-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.12);
+  border: 1px solid #e3f2fd;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.sir-request-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(33, 150, 243, 0.2);
+  border-color: #bbdefb;
+}
+
+/* Card header */
+.sir-card-header {
+  background: linear-gradient(135deg, #f8fdff, #e3f2fd);
+  padding: 24px 28px;
+  border-bottom: 2px solid #e3f2fd;
+}
+
+.sir-complaint-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.sir-complaint-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1565c0;
+  margin: 0;
+  flex: 1;
+  text-transform: capitalize;
+  line-height: 1.4;
+}
+
+.sir-request-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2196f3;
+  background: #ffffff;
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
+}
+
+/* Card body */
+.sir-card-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Faculty message */
+.sir-faculty-message {
+  background: #e8f4fd;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #2196f3;
+}
+
+.sir-message-label {
+  color: #1565c0;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sir-message-content p {
+  margin: 0;
+  color: #424242;
+  line-height: 1.7;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* Complaint context */
+.sir-complaint-context {
+  background: #f0f7ff;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #64b5f6;
+}
+
+.sir-context-label {
+  color: #1565c0;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sir-context-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.sir-context-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sir-context-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.sir-context-item strong {
+  color: #1565c0;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sir-context-item span,
+.sir-context-item p {
+  color: #424242;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Response form */
+.sir-response-form {
+  background: linear-gradient(135deg, #f8fdff, #ffffff);
+  border: 2px solid #e3f2fd;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.sir-response-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sir-form-label {
+  font-weight: 700;
+  color: #1565c0;
+  font-size: 18px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+/* Text response */
+.sir-textarea-container {
+  margin-bottom: 24px;
+}
+
+.sir-textarea-label {
+  font-weight: 700;
+  color: #1565c0;
+  font-size: 14px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.sir-textarea {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #bbdefb;
+  border-radius: 12px;
+  font-size: 16px;
+  font-family: inherit;
+  color: #1565c0;
+  background: #ffffff;
+  resize: vertical;
+  min-height: 120px;
+  transition: all 0.3s ease;
+}
+
+.sir-textarea:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.1);
+}
+
+.sir-textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* Attachment section */
+.sir-attachment-container {
+  margin-bottom: 24px;
+}
+
+.sir-attachment-label {
+  font-weight: 700;
+  color: #1565c0;
+  font-size: 14px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.sir-file-upload-area {
+  position: relative;
+  border: 3px dashed #bbdefb;
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  background: linear-gradient(135deg, #f8fdff, #ffffff);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.sir-file-upload-area:hover {
+  border-color: #2196f3;
+  background: linear-gradient(135deg, #e3f2fd, #f8fdff);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.15);
+}
+
+.sir-file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.sir-file-upload-content {
+  pointer-events: none;
+}
+
+.sir-upload-icon {
+  font-size: 48px;
+  color: #2196f3;
+  margin-bottom: 16px;
+}
+
+.sir-upload-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1565c0;
+  margin: 0;
+}
+
+/* File preview */
+.sir-file-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+  border: 2px solid #81c784;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.sir-file-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.sir-file-icon {
+  font-size: 24px;
+  color: #4caf50;
+}
+
+.sir-file-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.sir-file-name {
+  font-weight: 700;
+  color: #2e7d32;
+  margin-bottom: 4px;
+}
+
+.sir-file-size {
+  font-size: 12px;
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.sir-remove-btn {
+  background: #f44336;
+  border: none;
+  border-radius: 50%;
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.sir-remove-btn:hover {
+  background: #d32f2f;
+  transform: scale(1.1);
+}
+
+/* Form actions */
+.sir-form-actions {
+  text-align: center;
+}
+
+.sir-submit-btn {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: #ffffff;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 200px;
+  box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3);
+}
+
+.sir-submit-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #45a049, #388e3c);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(76, 175, 80, 0.4);
+}
+
+.sir-submit-btn:disabled {
+  background: #bdbdbd;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.sir-btn-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: sir-spin 1s linear infinite;
+}
+
+/* Help text */
+.sir-form-help {
+  font-size: 12px;
+  color: #666;
+  margin-top: 8px;
+  font-style: italic;
+  display: block;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sir-content {
+    margin-left: 0;
+    padding: 20px;
+    border-radius: 0;
+  }
+
+  .sir-title {
+    font-size: 28px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sir-complaint-info {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .sir-context-details {
+    grid-template-columns: 1fr;
+  }
+
+  .sir-file-upload-area {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sir-card-body {
+    padding: 20px;
+  }
+
+  .sir-response-form {
+    padding: 16px;
+  }
+
+  .sir-submit-btn {
+    width: 100%;
+  }
+
+  .sir-file-preview {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

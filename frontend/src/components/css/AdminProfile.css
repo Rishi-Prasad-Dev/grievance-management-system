@@ -1,0 +1,407 @@
+/* AdminProfile.css - Complete Red Theme */
+
+/* Layout */
+.ap-layout {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ap-content {
+  flex: 1;
+  margin-left: 220px;
+  padding: 32px 40px;
+  background: #ffffff;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  box-shadow: -8px 0 32px rgba(220, 53, 69, 0.08);
+  overflow-y: auto;
+}
+
+.ap-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.ap-header {
+  background: linear-gradient(135deg, #fff5f5, #fce4ec);
+  padding: 32px;
+  border-radius: 20px;
+  margin-bottom: 32px;
+  border-left: 6px solid #d32f2f;
+  box-shadow: 0 8px 24px rgba(211, 47, 47, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ap-header-content h1 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #b71c1c;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ap-header-content p {
+  font-size: 16px;
+  color: #d32f2f;
+  margin: 0;
+  font-weight: 600;
+}
+
+.ap-edit-btn {
+  background: linear-gradient(135deg, #d32f2f, #b71c1c);
+  color: #ffffff;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+.ap-edit-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #b71c1c, #9a0007);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(211, 47, 47, 0.4);
+}
+
+.ap-edit-btn:disabled {
+  background: #ef9a9a;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Loading State */
+.ap-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  color: #b71c1c;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.ap-spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #f8bbd9;
+  border-top: 6px solid #d32f2f;
+  border-radius: 50%;
+  animation: ap-spin 1s linear infinite;
+  margin-bottom: 24px;
+}
+
+@keyframes ap-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Main Card */
+.ap-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(220, 53, 69, 0.12);
+  border: 1px solid #fce4ec;
+  overflow: hidden;
+}
+
+/* Profile Image Section */
+.ap-image-section {
+  background: linear-gradient(135deg, #fff5f5, #fce4ec);
+  padding: 32px;
+  border-bottom: 2px solid #fce4ec;
+  text-align: center;
+}
+
+.ap-image-section h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #b71c1c;
+  margin: 0 0 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.ap-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.ap-current-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ffcdd2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid #d32f2f;
+  box-shadow: 0 8px 24px rgba(211, 47, 47, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.ap-current-image:hover {
+  transform: scale(1.05);
+}
+
+.ap-image-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ap-no-image {
+  font-size: 60px;
+  color: #d32f2f;
+  opacity: 0.7;
+}
+
+.ap-image-controls {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ap-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ap-btn-primary {
+  background: linear-gradient(135deg, #d32f2f, #b71c1c);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+.ap-btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #b71c1c, #9a0007);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(211, 47, 47, 0.4);
+}
+
+.ap-btn-secondary {
+  background: linear-gradient(135deg, #ef5350, #f44336);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(239, 83, 80, 0.3);
+}
+
+.ap-btn-secondary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(239, 83, 80, 0.4);
+}
+
+.ap-btn-danger {
+  background: linear-gradient(135deg, #757575, #424242);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(117, 117, 117, 0.3);
+}
+
+.ap-btn-danger:hover:not(:disabled) {
+  background: linear-gradient(135deg, #424242, #212121);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(117, 117, 117, 0.4);
+}
+
+.ap-selected-file {
+  color: #d32f2f;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  margin: 0;
+  padding: 12px 16px;
+  background: #ffebee;
+  border-radius: 8px;
+  border: 1px solid #ffcdd2;
+}
+
+/* Form Section */
+.ap-form {
+  padding: 32px;
+}
+
+.ap-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.ap-form-label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  color: #b71c1c;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ap-form-label input,
+.ap-form-label select,
+.ap-form-label textarea {
+  margin-top: 8px;
+  padding: 16px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: 2px solid #ffcdd2;
+  font-family: inherit;
+  color: #b71c1c;
+  transition: all 0.3s ease;
+  background: #ffffff;
+}
+
+.ap-form-label input:focus,
+.ap-form-label select:focus,
+.ap-form-label textarea:focus {
+  outline: none;
+  border-color: #d32f2f;
+  box-shadow: 0 0 12px rgba(211, 47, 47, 0.2);
+}
+
+.ap-form-label input:disabled,
+.ap-form-label select:disabled,
+.ap-form-label textarea:disabled {
+  background: #fff5f5;
+  border-color: #fce4ec;
+  color: #d32f2f;
+  cursor: not-allowed;
+}
+
+.ap-full-width {
+  grid-column: 1 / -1;
+}
+
+/* Form Actions */
+.ap-form-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  padding-top: 24px;
+  border-top: 2px solid #fce4ec;
+}
+
+.ap-save-btn,
+.ap-cancel-btn {
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.ap-save-btn {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.ap-save-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #45a049, #388e3c);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+}
+
+.ap-save-btn:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.ap-cancel-btn {
+  background: linear-gradient(135deg, #757575, #424242);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(117, 117, 117, 0.3);
+}
+
+.ap-cancel-btn:hover {
+  background: linear-gradient(135deg, #424242, #212121);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(117, 117, 117, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ap-content {
+    margin-left: 0;
+    padding: 20px;
+    border-radius: 0;
+  }
+
+  .ap-header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .ap-header-content h1 {
+    font-size: 28px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ap-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ap-image-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ap-form-actions {
+    flex-direction: column;
+  }
+
+  .ap-current-image {
+    width: 120px;
+    height: 120px;
+  }
+}

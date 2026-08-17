@@ -1,0 +1,307 @@
+/* FacultySideBar.css - Complete Green Theme */
+
+/* Sidebar container */
+.fss-sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 220px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  box-shadow: 4px 0 20px rgba(76, 175, 80, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #2e7d32, #388e3c, #4caf50);
+  color: #ffffff;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+/* Profile Section */
+.fss-profile-section {
+  padding: 32px 24px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.fss-profile-image-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.fss-profile-image-container:hover {
+  transform: scale(1.05);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.fss-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fss-profile-placeholder {
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fss-profile-info {
+  text-align: center;
+  width: 100%;
+}
+
+.fss-profile-info h3 {
+  color: #ffffff;
+  margin: 0 0 4px;
+  font-weight: 800;
+  font-size: 18px;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.fss-profile-info p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  margin: 0 0 8px;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.fss-user-role {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Loading State */
+.fss-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.fss-loading-spinner {
+  animation: fss-spin 1s linear infinite;
+  font-size: 20px;
+}
+
+@keyframes fss-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Navigation */
+.fss-sidebar-nav {
+  flex: 1;
+  padding: 24px 0;
+}
+
+.fss-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fss-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fss-nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.fss-nav-link:hover,
+.fss-nav-link.fss-active {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.fss-nav-link:hover::before,
+.fss-nav-link.fss-active::before {
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.fss-nav-link.fss-active {
+  background: rgba(255, 255, 255, 0.15);
+  font-weight: 800;
+}
+
+.fss-nav-icon {
+  font-size: 18px;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.fss-nav-link:hover .fss-nav-icon,
+.fss-nav-link.fss-active .fss-nav-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Footer */
+.fss-sidebar-footer {
+  padding: 24px;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.fss-logout-btn {
+  width: 100%;
+  padding: 16px;
+  background: rgba(244, 67, 54, 0.8);
+  border: 2px solid rgba(244, 67, 54, 0.6);
+  border-radius: 12px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fss-logout-btn:hover {
+  background: rgba(244, 67, 54, 1);
+  border-color: rgba(244, 67, 54, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(244, 67, 54, 0.4);
+}
+
+.fss-logout-icon {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.fss-logout-btn:hover .fss-logout-icon {
+  transform: rotate(10deg);
+}
+
+/* Scrollbar Styling */
+.fss-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.fss-sidebar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.fss-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.fss-sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .fss-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 16px;
+    box-shadow: none;
+    background: linear-gradient(90deg, #2e7d32, #4caf50);
+  }
+
+  .fss-profile-section {
+    flex-direction: row;
+    text-align: left;
+    padding: 16px;
+  }
+
+  .fss-profile-image-container {
+    width: 60px;
+    height: 60px;
+  }
+
+  .fss-profile-info {
+    text-align: left;
+    flex: 1;
+  }
+
+  .fss-nav-list {
+    flex-direction: row;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .fss-nav-link {
+    padding: 12px 16px;
+    font-size: 12px;
+    border-radius: 8px;
+    transform: none;
+  }
+
+  .fss-nav-link:hover,
+  .fss-nav-link.fss-active {
+    transform: none;
+  }
+
+  .fss-sidebar-footer {
+    padding: 16px;
+  }
+
+  .fss-logout-btn {
+    padding: 12px;
+    font-size: 12px;
+  }
+}

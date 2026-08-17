@@ -1,0 +1,742 @@
+/* FacultyViewComplaints.css - Enhanced Green Theme */
+
+/* Layout */
+.fvc-layout {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fvc-content {
+  flex: 1;
+  margin-left: 220px;
+  padding: 32px 40px;
+  background: #ffffff;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  box-shadow: -8px 0 32px rgba(76, 175, 80, 0.08);
+  overflow-y: auto;
+}
+
+/* Header Section */
+.fvc-header {
+  background: linear-gradient(135deg, #f8fffe, #e8f5e9);
+  padding: 32px;
+  border-radius: 20px;
+  margin-bottom: 32px;
+  border-left: 6px solid #4caf50;
+  box-shadow: 0 8px 24px rgba(76, 175, 80, 0.1);
+}
+
+.fvc-header-content h1 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #2e7d32;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.fvc-header-content p {
+  font-size: 18px;
+  color: #4caf50;
+  margin: 0 0 24px;
+  font-weight: 600;
+}
+
+/* Filter Buttons */
+.fvc-filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.fvc-filter-btn {
+  padding: 12px 20px;
+  border: 2px solid #81c784;
+  background: #ffffff;
+  color: #2e7d32;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fvc-filter-btn:hover {
+  background: #e8f5e9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+}
+
+.fvc-filter-btn.fvc-active {
+  background: #4caf50;
+  color: #ffffff;
+  border-color: #388e3c;
+  box-shadow: 0 6px 16px rgba(76, 175, 80, 0.4);
+}
+
+/* Loading State */
+.fvc-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  color: #2e7d32;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.fvc-spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #c8e6c9;
+  border-top: 6px solid #4caf50;
+  border-radius: 50%;
+  animation: fvc-spin 1s linear infinite;
+  margin-bottom: 24px;
+}
+
+@keyframes fvc-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Complaints Grid */
+.fvc-complaints-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 24px;
+}
+
+/* Complaint Card */
+.fvc-complaint-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(76, 175, 80, 0.12);
+  border: 1px solid #e8f5e9;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.fvc-complaint-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(76, 175, 80, 0.2);
+  border-color: #c8e6c9;
+}
+
+/* Card Header */
+.fvc-card-header {
+  background: linear-gradient(135deg, #f1f8e9, #e8f5e9);
+  padding: 24px 28px;
+  border-bottom: 2px solid #e8f5e9;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.fvc-card-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #2e7d32;
+  flex: 1;
+  line-height: 1.4;
+  text-transform: capitalize;
+}
+
+.fvc-status-badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Card Body */
+.fvc-card-body {
+  padding: 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.fvc-complaint-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.fvc-type-badge {
+  background: #c8e6c9;
+  color: #2e7d32;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fvc-date {
+  color: #4caf50;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.fvc-description {
+  background: #f8fffe;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #81c784;
+}
+
+.fvc-description strong {
+  color: #2e7d32;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.fvc-description p {
+  margin: 0;
+  color: #424242;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Attachment Section */
+.fvc-attachment-section {
+  background: #f3e5f5;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #9c27b0;
+}
+
+.fvc-attachment-section strong,
+.fvc-response-attachment strong,
+.fvc-attachment-label {
+  color: #7b1fa2;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.fvc-image-container {
+  margin-top: 12px;
+}
+
+.fvc-attachment-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 200px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.fvc-attachment-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Info Requests */
+.fvc-info-requests {
+  background: #fff3e0;
+  padding: 20px;
+  border-radius: 16px;
+  border-left: 4px solid #ff9800;
+}
+
+.fvc-info-requests > strong {
+  color: #e65100;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.fvc-info-request {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ffcc02;
+  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.1);
+}
+
+.fvc-faculty-message,
+.fvc-student-response {
+  margin-bottom: 16px;
+}
+
+.fvc-message-label {
+  color: #e65100;
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.fvc-faculty-message p,
+.fvc-student-response p {
+  margin: 0 0 8px;
+  color: #424242;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.fvc-message-date {
+  color: #757575;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.fvc-response-attachment {
+  margin-top: 12px;
+  padding: 12px;
+  background: #f3e5f5;
+  border-radius: 8px;
+}
+
+.fvc-awaiting-response {
+  color: #ff9800;
+  font-style: italic;
+  font-weight: 700;
+  text-align: center;
+  padding: 16px;
+  background: #fff8e1;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Assigned Notice */
+.fvc-assigned-notice {
+  background: #fff3cd;
+  color: #856404;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-align: center;
+  border: 1px solid #ffeaa7;
+}
+
+/* Card Footer */
+.fvc-card-footer {
+  background: #f8fffe;
+  padding: 24px 28px;
+  border-top: 2px solid #e8f5e9;
+}
+
+.fvc-status-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.fvc-status-section label {
+  color: #2e7d32;
+  font-weight: 800;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fvc-status-select {
+  padding: 12px 16px;
+  border: 2px solid #c8e6c9;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #2e7d32;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  min-width: 160px;
+}
+
+.fvc-status-select:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+}
+
+/* Info Request Form */
+.fvc-info-form {
+  background: #e3f2fd;
+  padding: 20px;
+  border-radius: 16px;
+  border-left: 4px solid #2196f3;
+  margin-top: 20px;
+}
+
+.fvc-info-form h4 {
+  color: #1976d2;
+  font-weight: 800;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fvc-message-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 16px;
+  border: 2px solid #bbdefb;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #424242;
+  resize: vertical;
+  margin-bottom: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.fvc-message-textarea:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 8px rgba(33, 150, 243, 0.3);
+}
+
+.fvc-form-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.fvc-btn-send,
+.fvc-btn-cancel {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fvc-btn-send {
+  background: linear-gradient(135deg, #2196f3, #1976d2);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.fvc-btn-send:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1976d2, #1565c0);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(33, 150, 243, 0.4);
+}
+
+.fvc-btn-send:disabled {
+  background: #90caf9;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.fvc-btn-cancel {
+  background: linear-gradient(135deg, #757575, #424242);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(117, 117, 117, 0.3);
+}
+
+.fvc-btn-cancel:hover {
+  background: linear-gradient(135deg, #424242, #212121);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(117, 117, 117, 0.4);
+}
+
+/* Empty State */
+.fvc-empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 40px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(76, 175, 80, 0.08);
+}
+
+.fvc-empty-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+  color: #4caf50;
+  opacity: 0.6;
+}
+
+.fvc-empty-state h3 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #2e7d32;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.fvc-empty-state p {
+  font-size: 16px;
+  color: #4caf50;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Lightbox */
+.fvc-lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fvc-fadeIn 0.3s ease;
+}
+
+@keyframes fvc-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fvc-lightbox-content {
+  background: #ffffff;
+  border-radius: 16px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3);
+  animation: fvc-slideIn 0.3s ease;
+}
+
+@keyframes fvc-slideIn {
+  from { transform: translateY(-50px) scale(0.9); }
+  to { transform: translateY(0) scale(1); }
+}
+
+.fvc-lightbox-header {
+  background: #f8fffe;
+  padding: 16px 24px;
+  border-bottom: 2px solid #e8f5e9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fvc-lightbox-header h4 {
+  margin: 0;
+  color: #2e7d32;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.fvc-lightbox-close {
+  background: #f44336;
+  color: #ffffff;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.fvc-lightbox-close:hover {
+  background: #d32f2f;
+}
+
+.fvc-lightbox-image {
+  max-width: 100%;
+  max-height: 70vh;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Stats overview section*/
+.fvc-stats-overview {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.fvc-stat-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.12);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  min-width: 160px;
+}
+
+.fvc-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(76, 175, 80, 0.2);
+}
+
+/* Stat card variants using existing color scheme */
+.fvc-stat-card.fvc-pending { border-color: #ffc107; }
+.fvc-stat-card.fvc-acknowledged { border-color: #17a2b8; }
+.fvc-stat-card.fvc-progress { border-color: #ff9800; }
+.fvc-stat-card.fvc-hold { border-color: #6f42c1; }
+
+.fvc-stat-icon {
+  font-size: 32px;
+  opacity: 0.9;
+}
+
+.fvc-stat-card.fvc-pending .fvc-stat-icon { color: #ffc107; }
+.fvc-stat-card.fvc-acknowledged .fvc-stat-icon { color: #17a2b8; }
+.fvc-stat-card.fvc-progress .fvc-stat-icon { color: #ff9800; }
+.fvc-stat-card.fvc-hold .fvc-stat-icon { color: #6f42c1; }
+
+.fvc-stat-info h3 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  color: #2e7d32;
+}
+
+.fvc-stat-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #4caf50;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Student info section */
+.fvc-student-info {
+  background: #e8f5e9;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #4caf50;
+}
+
+.fvc-student-info h4 {
+  color: #2e7d32;
+  font-weight: 800;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fvc-student-details p {
+  margin: 8px 0;
+  color: #424242;
+  font-weight: 500;
+}
+
+.fvc-student-details strong {
+  color: #2e7d32;
+  font-weight: 700;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .fvc-content {
+    margin-left: 0;
+    padding: 20px;
+    border-radius: 0;
+  }
+
+  .fvc-header {
+    padding: 20px;
+  }
+
+  .fvc-header-content h1 {
+    font-size: 28px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .fvc-complaints-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .fvc-filters {
+    flex-direction: column;
+  }
+
+  .fvc-filter-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .fvc-card-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .fvc-complaint-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fvc-status-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .fvc-status-select {
+    width: 100%;
+  }
+
+  .fvc-form-actions {
+    flex-direction: column;
+  }
+}

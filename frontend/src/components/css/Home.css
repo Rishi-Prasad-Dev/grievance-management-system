@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* ============================================================================ */
+/* CONTAINER AND LAYOUT */
+/* ============================================================================ */
+
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* Enhanced gradient background for visual appeal */
+  background: linear-gradient(135deg, #f0f8ff 0%, #e0f0ff 40%, #f8f9ff 70%, #ffffff 100%);
+  font-family: 'Poppins', sans-serif;
+  color: #2c3e50;
+  margin: 0;
+}
+
+/* ============================================================================ */
+/* HEADER SECTION */
+/* ============================================================================ */
+
+.home-header {
+  padding: 32px 16px;
+  background: linear-gradient(135deg, #ffffff 0%, #fafbff 100%);
+  border-bottom: 3px solid #5b9efa;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(91, 158, 250, 0.15);
+}
+
+.home-header-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* React Icon Styling */
+.home-react-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #61dafb 0%, #21d4fd 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(97, 218, 251, 0.3);
+  animation: react-spin 20s linear infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* React icon spinning animation */
+@keyframes react-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* React icon hover effect */
+.home-react-icon:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(97, 218, 251, 0.4);
+}
+
+/* Main heading styling */
+.home-header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  color: #1a2a48;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 4px rgba(26, 42, 72, 0.1);
+}
+
+/* Subtitle styling */
+.subtitle {
+  margin: 8px 0 0;
+  font-size: 16px;
+  color: #4a6fa5;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================================ */
+/* MAIN CONTENT AREA */
+/* ============================================================================ */
+
+.home-main {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding: 48px 16px;
+}
+
+/* ============================================================================ */
+/* PORTAL CARDS - Enhanced colors and animations */
+/* ============================================================================ */
+
+.portal-card {
+  /* Gradient background for depth */
+  background: linear-gradient(145deg, #ffffff 0%, #fafbff 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(44, 62, 80, 0.12);
+  width: 280px;
+  height: 280px;
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Card hover and focus effects */
+.portal-card:hover,
+.portal-card:focus {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(44, 62, 80, 0.18);
+  outline: none;
+}
+
+/* Focus visible for accessibility */
+.portal-card:focus-visible {
+  outline: 3px solid #3467eb;
+  outline-offset: 3px;
+}
+
+/* Subtle background pattern on hover */
+.portal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portal-card:hover::before {
+  opacity: 1;
+}
+
+/* ============================================================================ */
+/* ICON CIRCLES - Enhanced colors and effects */
+/* ============================================================================ */
+
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 38px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Enhanced Admin portal colors */
+.admin-portal .icon-circle { 
+  background: linear-gradient(135deg, #ffe0e0 0%, #ffcccb 100%);
+  color: #dc2626;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+}
+
+/* Enhanced Faculty portal colors */
+.faculty-portal .icon-circle { 
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  color: #16a34a;
+  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.2);
+}
+
+/* Enhanced Student portal colors */
+.student-portal .icon-circle { 
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  color: #2563eb;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+}
+
+/* Icon hover animation effects */
+.portal-card:hover .icon-circle {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* ============================================================================ */
+/* CARD TITLES & DESCRIPTION TEXT */
+/* ============================================================================ */
+
+.portal-card h3 {
+  margin: 12px 0 8px 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a2a41;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.portal-card p {
+  margin: 8px 0 24px 0;
+  font-size: 15px;
+  color: #557aab;
+  font-weight: 500;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+/* ============================================================================ */
+/* PORTAL BUTTONS - Enhanced styling with gradients */
+/* ============================================================================ */
+
+.portal-btn {
+  width: 200px;
+  padding: 14px 0;
+  border: none;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0 auto;
+  display: block;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Focus state for accessibility */
+.portal-btn:focus-visible {
+  outline: 3px solid #3467eb;
+  outline-offset: 3px;
+}
+
+/* Enhanced button colors with gradients */
+.admin-portal .portal-btn {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.faculty-portal .portal-btn {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
+}
+
+.student-portal .portal-btn {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* Button hover effects with enhanced gradients */
+.portal-btn:hover,
+.portal-btn:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.admin-portal .portal-btn:hover { 
+  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+}
+
+.faculty-portal .portal-btn:hover { 
+  background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+}
+
+.student-portal .portal-btn:hover { 
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+}
+
+/* ============================================================================ */
+/* FOOTER SECTION */
+/* ============================================================================ */
+
+.home-footer {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+  border-top: 2px solid #e0e4e8;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  color: #557aab;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* ============================================================================ */
+/* RESPONSIVE DESIGN */
+/* ============================================================================ */
+
+/* Tablet responsive adjustments */
+@media (max-width: 768px) {
+  .home-main {
+    gap: 24px;
+    padding: 32px 16px;
+  }
+  
+  .portal-card {
+    width: 260px;
+    height: 260px;
+    padding: 24px 16px;
+  }
+  
+  .home-header h1 {
+    font-size: 26px;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+  }
+  
+  /* Smaller React icon on tablets */
+  .home-react-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 480px) {
+  .home-main {
+    flex-direction: column;
+  }
+  
+  .portal-card {
+    width: 90%;
+    max-width: 280px;
+  }
+  
+  .home-header {
+    padding: 24px 16px;
+  }
+  
+  /* Even smaller React icon on mobile */
+  .home-react-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 35px;
+  }
+  
+  .home-header h1 {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+}

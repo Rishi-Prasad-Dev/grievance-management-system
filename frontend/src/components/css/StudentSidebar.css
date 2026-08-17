@@ -1,0 +1,241 @@
+/* Sidebar container: full height fixed to left */
+.ssb-sidebar {
+  width: 220px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, #2866cc 0%, #1e4eaa 100%);
+  color: #e1e6f9;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+/* Profile Section */
+.ssb-sidebar-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding-bottom: 20px;
+}
+
+.ssb-profile-image-container {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #d0d9f8;
+  flex-shrink: 0;
+}
+
+.ssb-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #e0e7ff;
+  transition: box-shadow 0.3s ease;
+}
+
+.ssb-profile-image:hover {
+  box-shadow: 0 0 8px #a3bffa;
+}
+
+.ssb-profile-placeholder {
+  width: 68px;
+  height: 68px;
+  text-align: center;
+  line-height: 68px;
+}
+
+/* Loading spinner */
+.ssb-loading-spinner {
+  animation: ssb-spin 1s linear infinite;
+  font-size: 20px;
+}
+
+@keyframes ssb-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.ssb-profile-info {
+  margin-left: 15px;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.ssb-profile-info h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #cbd6fa;
+  text-shadow: 0 0 3px rgba(20, 40, 90, 0.7);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.ssb-profile-info p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #b0bff7;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.ssb-user-role {
+  margin-top: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #a5b2fa;
+  text-transform: uppercase;
+}
+
+/* Navigation */
+.ssb-sidebar-nav {
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+.ssb-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ssb-nav-list li {
+  margin-bottom: 12px;
+}
+
+.ssb-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #cbd6fa;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  overflow: hidden;
+}
+
+.ssb-link span {
+  white-space: nowrap;
+}
+
+.ssb-link:hover,
+.ssb-link:focus-visible,
+.ssb-link.ssb-active {
+  background-color: #1a51b2;
+  color: #fff;
+  outline-offset: 2px;
+  outline: 2px solid #a3bffa;
+}
+
+.ssb-nav-icon {
+  font-size: 20px;
+  margin-right: 14px;
+  color: #a8b7fc;
+  transition: color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.ssb-link:hover .ssb-nav-icon,
+.ssb-link:focus-visible .ssb-nav-icon,
+.ssb-link.ssb-active .ssb-nav-icon {
+  color: #e0e7ff;
+}
+
+/* Footer & Logout */
+.ssb-sidebar-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: 15px;
+}
+
+.ssb-logout-btn {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #1e4eaa;
+  border: none;
+  border-radius: 8px;
+  color: #cbd6fa;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.ssb-logout-btn:hover,
+.ssb-logout-btn:focus-visible {
+  background-color: #154080;
+  color: #e0e7ff;
+  outline-offset: 2px;
+  outline: 2px solid #a3bffa;
+}
+
+.ssb-logout-icon {
+  font-size: 20px;
+}
+
+/* Scrollbar */
+.ssb-sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ssb-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.ssb-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Responsive - collapse sidebar */
+@media (max-width: 768px) {
+  .ssb-sidebar {
+    width: 70px;
+    padding: 20px 10px;
+  }
+
+  .ssb-profile-info,
+  .ssb-user-role,
+  .ssb-link span {
+    display: none;
+  }
+
+  .ssb-nav-icon {
+    margin-right: 0;
+    font-size: 24px;
+  }
+
+  .ssb-logout-btn {
+    padding: 12px;
+    font-size: 0;
+  }
+
+  .ssb-logout-icon {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,521 @@
+/* StudentProfile.css - Complete Blue Theme */
+
+/* Layout */
+.sp-layout {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e3f2fd, #f0f8ff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Content area */
+.sp-content {
+  flex: 1;
+  margin-left: 220px;
+  padding: 32px 40px;
+  background: #ffffff;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  box-shadow: -8px 0 32px rgba(33, 150, 243, 0.08);
+  overflow-y: auto;
+}
+
+/* Header section */
+.sp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  background: linear-gradient(135deg, #f8fdff, #e3f2fd);
+  padding: 32px;
+  border-radius: 20px;
+  border-left: 6px solid #2196f3;
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.1);
+}
+
+.sp-header-content .sp-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1565c0;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sp-header-content .sp-subtitle {
+  font-size: 16px;
+  color: #2196f3;
+  margin: 0;
+  font-weight: 600;
+}
+
+.sp-edit-btn {
+  background: linear-gradient(135deg, #2196f3, #1976d2);
+  color: #ffffff;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.sp-edit-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1976d2, #1565c0);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(33, 150, 243, 0.4);
+}
+
+.sp-edit-btn:disabled {
+  background: #90caf9;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Loading state */
+.sp-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  color: #1565c0;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.sp-spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #bbdefb;
+  border-top: 6px solid #2196f3;
+  border-radius: 50%;
+  animation: sp-spin 1s linear infinite;
+  margin-bottom: 24px;
+}
+
+@keyframes sp-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Container */
+.sp-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Image section */
+.sp-image-section {
+  background: linear-gradient(135deg, #f8fdff, #e3f2fd);
+  padding: 32px;
+  border-radius: 20px;
+  margin-bottom: 32px;
+  border: 2px solid #e3f2fd;
+  text-align: center;
+}
+
+.sp-section-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1565c0;
+  margin: 0 0 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.sp-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.sp-image-display {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #bbdefb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid #2196f3;
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.sp-image-display:hover {
+  transform: scale(1.05);
+}
+
+.sp-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sp-image-placeholder {
+  font-size: 60px;
+  color: #2196f3;
+  opacity: 0.8;
+}
+
+.sp-image-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.sp-file-input {
+  display: none;
+}
+
+.sp-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.sp-btn-primary {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.sp-btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #45a049, #388e3c);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+}
+
+.sp-btn-primary:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.sp-btn-secondary {
+  background: linear-gradient(135deg, #64b5f6, #42a5f5);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(100, 181, 246, 0.3);
+}
+
+.sp-btn-secondary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #42a5f5, #2196f3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(100, 181, 246, 0.4);
+}
+
+.sp-file-selected {
+  background: #e8f5e8;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 2px solid #81c784;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.sp-file-info {
+  color: #2e7d32;
+  font-weight: 600;
+  margin: 0 0 12px;
+  font-size: 14px;
+}
+
+.sp-btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: sp-spin 1s linear infinite;
+}
+
+/* Form section */
+.sp-form {
+  background: linear-gradient(135deg, #fafcff, #ffffff);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.12);
+  border: 1px solid #e3f2fd;
+}
+
+.sp-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sp-legend {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1565c0;
+  padding: 32px 32px 0;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sp-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  padding: 32px;
+}
+
+.sp-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.sp-form-group.sp-full-width {
+  grid-column: 1 / -1;
+}
+
+.sp-label {
+  font-weight: 700;
+  color: #1565c0;
+  font-size: 16px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sp-input {
+  padding: 16px 20px;
+  border: 2px solid #bbdefb;
+  border-radius: 12px;
+  font-size: 16px;
+  font-family: inherit;
+  color: #1565c0;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.sp-input:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.1);
+}
+
+.sp-input:disabled {
+  background: #f5f7fa;
+  border-color: #e1f5fe;
+  color: #90a4ae;
+  cursor: not-allowed;
+}
+
+.sp-input.sp-readonly {
+  background: #e8f4f8;
+  border-color: #b3e5fc;
+  color: #546e7a;
+  font-weight: 600;
+}
+
+.sp-input.sp-error {
+  border-color: #f44336;
+  box-shadow: 0 0 0 4px rgba(244, 67, 54, 0.1);
+}
+
+.sp-error-message {
+  color: #f44336;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sp-help-text {
+  color: #757575;
+  font-size: 12px;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Form actions */
+.sp-form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 32px;
+  border-top: 2px solid #e3f2fd;
+  background: #f8fdff;
+}
+
+.sp-btn-save {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: #ffffff;
+  padding: 16px 32px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.sp-btn-save:hover:not(:disabled) {
+  background: linear-gradient(135deg, #45a049, #388e3c);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+}
+
+.sp-btn-save:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.sp-btn-cancel {
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+  color: #ffffff;
+  padding: 16px 32px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+}
+
+.sp-btn-cancel:hover {
+  background: linear-gradient(135deg, #d32f2f, #c62828);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(244, 67, 54, 0.4);
+}
+
+/* Add these missing styles to existing StudentProfile.css */
+
+/* Danger button styles */
+.sp-btn-danger {
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+}
+
+.sp-btn-danger:hover:not(:disabled) {
+  background: linear-gradient(135deg, #d32f2f, #c62828);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(244, 67, 54, 0.4);
+}
+
+.sp-btn-danger:disabled {
+  background: #ffcdd2;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Readonly input styles */
+.sp-readonly {
+  background: #e8f4f8 !important;
+  border-color: #b3e5fc !important;
+  color: #546e7a !important;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sp-content {
+    margin-left: 0;
+    padding: 20px;
+    border-radius: 0;
+  }
+
+  .sp-header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .sp-form-grid {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .sp-legend {
+    padding: 20px 20px 0;
+  }
+
+  .sp-form-actions {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .sp-btn-save,
+  .sp-btn-cancel {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sp-image-display {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sp-container {
+    padding: 0;
+  }
+
+  .sp-image-section {
+    padding: 20px;
+  }
+
+  .sp-section-title {
+    font-size: 20px;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

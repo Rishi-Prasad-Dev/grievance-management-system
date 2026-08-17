@@ -1,0 +1,534 @@
+/* ============================================================================ */
+/* STUDENT COMPLAINT FORM - CLEAN BLUE THEME */
+/* ============================================================================ */
+
+/* Main layout container with sidebar and content area */
+.complain-layout {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e3f2fd, #f0f8ff);
+}
+
+/* ============================================================================ */
+/* CONTENT AREA - Positioned next to fixed sidebar */
+/* ============================================================================ */
+
+.complain-content {
+  flex: 1;
+  margin-left: 220px;                    /* Space for fixed sidebar */
+  padding: 40px 50px;                    /* Generous padding for breathing room */
+  background: #ffffff;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  box-shadow: -8px 0 32px rgba(33, 150, 243, 0.08);
+  overflow-y: auto;
+  max-width: 1200px;                     /* Prevent excessive width on large screens */
+}
+
+/* ============================================================================ */
+/* HEADER SECTION - Page title and description */
+/* ============================================================================ */
+
+.complain-header {
+  margin-bottom: 50px;                   /* Increased spacing for less clutter */
+  background: linear-gradient(135deg, #f8fdff, #e3f2fd);
+  padding: 40px;                         /* More padding for spacious feel */
+  border-radius: 20px;
+  border-left: 6px solid #2196f3;
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.1);
+  text-align: center;
+}
+
+.complain-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1565c0;
+  margin: 0 0 16px 0;                    /* Increased bottom margin */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.complain-subtitle {
+  font-size: 18px;
+  color: #2196f3;
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.5;                      /* Better line height for readability */
+}
+
+/* ============================================================================ */
+/* MAIN FORM CONTAINER - Clean and spacious */
+/* ============================================================================ */
+
+.complain-form {
+  background: #ffffff;
+  border: 2px solid #e3f2fd;
+  border-radius: 24px;
+  padding: 50px;                         /* Increased padding for spacious layout */
+  box-shadow: 0 8px 32px rgba(33, 150, 243, 0.1);
+  margin: 0 auto;
+}
+
+/* ============================================================================ */
+/* FORM SECTIONS - Organized content blocks */
+/* ============================================================================ */
+
+.form-section {
+  margin-bottom: 50px;                   /* Large spacing between sections */
+  padding-bottom: 30px;
+  border-bottom: 1px solid #f0f8ff;     /* Subtle section divider */
+}
+
+.form-section:last-child {
+  border-bottom: none;                   /* Remove border from last section */
+}
+
+/* Section titles with icons */
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1565c0;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Section descriptions */
+.section-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 30px 0;                    /* Space before form elements */
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* ============================================================================ */
+/* FORM LAYOUT - Grid system for organized fields */
+/* ============================================================================ */
+
+/* Horizontal row for side-by-side fields */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;       /* Two equal columns */
+  gap: 30px;                             /* Generous gap between columns */
+  margin-bottom: 0;
+}
+
+/* Individual form field container */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;                   /* Consistent spacing between groups */
+}
+
+/* Full-width form groups (span all columns) */
+.form-group.full-width {
+  grid-column: 1 / -1;                   /* Span all columns in grid */
+}
+
+/* ============================================================================ */
+/* FORM LABELS - Clean and consistent styling */
+/* ============================================================================ */
+
+.form-group label {
+  font-weight: 600;
+  color: #1565c0;
+  font-size: 14px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============================================================================ */
+/* FORM INPUTS - Modern and accessible design */
+/* ============================================================================ */
+
+.form-input {
+  padding: 16px 20px;                    /* Generous padding for comfort */
+  border: 2px solid #e0e7ff;             /* Soft border color */
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1565c0;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  line-height: 1.4;
+}
+
+/* Input focus states */
+.form-input:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.1);
+  background: #f8fdff;
+}
+
+/* Input hover states */
+.form-input:hover:not(:disabled) {
+  border-color: #64b5f6;
+}
+
+/* Textarea specific styling */
+.form-input.textarea {
+  resize: vertical;                      /* Allow vertical resize only */
+  min-height: 120px;                     /* Minimum height for textarea */
+}
+
+/* Read-only field styling */
+.form-input.readonly {
+  background: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+  border-style: dashed;
+  border-color: #dee2e6;
+}
+
+/* Error state styling */
+.form-input.error {
+  border-color: #f44336;
+  box-shadow: 0 0 0 4px rgba(244, 67, 54, 0.1);
+  background: #fef9f9;
+}
+
+/* ============================================================================ */
+/* ERROR AND HELP TEXT - User guidance */
+/* ============================================================================ */
+
+.error-message {
+  color: #f44336;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.3;
+}
+
+.form-help {
+  font-size: 12px;
+  color: #6c757d;
+  margin-top: 6px;
+  line-height: 1.3;
+}
+
+/* ============================================================================ */
+/* FILE UPLOAD AREA - Clean drag and drop design */
+/* ============================================================================ */
+
+.file-upload-area {
+  position: relative;
+  border: 3px dashed #bbdefb;
+  border-radius: 16px;
+  padding: 50px 30px;                    /* Generous padding */
+  text-align: center;
+  background: linear-gradient(135deg, #f8fdff, #ffffff);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.file-upload-area:hover {
+  border-color: #2196f3;
+  background: linear-gradient(135deg, #e3f2fd, #f8fdff);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.15);
+}
+
+/* Hidden file input */
+.file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Upload area content */
+.file-upload-content {
+  pointer-events: none;
+}
+
+.file-upload-icon {
+  font-size: 48px;
+  color: #2196f3;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.file-upload-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1565c0;
+  margin: 0 0 8px 0;
+}
+
+/* ============================================================================ */
+/* FILE PREVIEW - Selected file display */
+/* ============================================================================ */
+
+.file-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+  border: 2px solid #81c784;
+  border-radius: 12px;
+  padding: 20px;                         /* Increased padding */
+  margin-top: 10px;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;                             /* Increased gap */
+  flex: 1;
+}
+
+.file-icon {
+  font-size: 24px;
+  color: #4caf50;
+}
+
+.file-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;                              /* Gap between filename and size */
+}
+
+.file-name {
+  font-weight: 600;
+  color: #2e7d32;
+  font-size: 14px;
+}
+
+.file-size {
+  font-size: 12px;
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.file-remove-btn {
+  background: #f44336;
+  border: none;
+  border-radius: 50%;
+  color: #ffffff;
+  width: 40px;                           /* Slightly larger button */
+  height: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.file-remove-btn:hover {
+  background: #d32f2f;
+  transform: scale(1.1);
+}
+
+/* ============================================================================ */
+/* FORM ACTIONS - Submit button and help text */
+/* ============================================================================ */
+
+.form-actions {
+  margin-top: 60px;                      /* Large top margin for separation */
+  padding-top: 40px;
+  border-top: 2px solid #e3f2fd;
+  text-align: center;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 18px 50px;                    /* Generous padding */
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3);
+  min-width: 240px;                      /* Minimum width for consistency */
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #45a049, #388e3c);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(76, 175, 80, 0.4);
+}
+
+.submit-btn:disabled {
+  background: #bdbdbd;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.submit-help {
+  font-size: 14px;
+  color: #6c757d;
+  margin-top: 16px;
+  line-height: 1.4;
+}
+
+/* ============================================================================ */
+/* LOADING ANIMATIONS - Spinner components */
+/* ============================================================================ */
+
+.btn-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: complain-spin 1s linear infinite;
+}
+
+.complain-spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #bbdefb;
+  border-top: 6px solid #2196f3;
+  border-radius: 50%;
+  animation: complain-spin 1s linear infinite;
+  margin-bottom: 24px;
+}
+
+@keyframes complain-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ============================================================================ */
+/* LOADING STATE - Full page loading */
+/* ============================================================================ */
+
+.complain-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  color: #1565c0;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+/* ============================================================================ */
+/* RESPONSIVE DESIGN - Mobile and tablet adaptations */
+/* ============================================================================ */
+
+/* Tablet responsive design */
+@media (max-width: 968px) {
+  .complain-content {
+    margin-left: 0;                      /* Remove sidebar margin */
+    padding: 30px;
+    border-radius: 0;
+  }
+
+  .complain-form {
+    padding: 40px 30px;                  /* Reduce padding on smaller screens */
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;          /* Stack form fields vertically */
+    gap: 20px;
+  }
+
+  .complain-title {
+    font-size: 28px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-section {
+    margin-bottom: 40px;                 /* Reduce section spacing */
+  }
+}
+
+/* Mobile responsive design */
+@media (max-width: 768px) {
+  .complain-content {
+    padding: 20px;
+  }
+
+  .complain-form {
+    padding: 30px 20px;
+  }
+
+  .complain-header {
+    padding: 30px 20px;
+  }
+
+  .file-upload-area {
+    padding: 40px 20px;
+  }
+
+  .submit-btn {
+    width: 100%;                         /* Full width button on mobile */
+    min-width: auto;
+  }
+
+  .file-preview {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .form-section {
+    margin-bottom: 35px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .complain-content {
+    padding: 15px;
+  }
+
+  .complain-form {
+    padding: 25px 15px;
+  }
+
+  .complain-header {
+    padding: 25px 15px;
+  }
+
+  .complain-title {
+    font-size: 24px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .form-input {
+    padding: 14px 16px;                  /* Slightly smaller padding on small screens */
+  }
+}

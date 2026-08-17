@@ -1,0 +1,496 @@
+/* Student Dashboard Layout - Blue Theme */
+.sdb-layout {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e3f2fd, #f0f8ff);
+}
+
+/* Main content area positioned next to fixed sidebar */
+.sdb-content {
+  flex: 1;
+  margin-left: 220px;
+  padding: 32px 40px;
+  background: #ffffff;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  box-shadow: -8px 0 32px rgba(33, 150, 243, 0.08);
+  overflow-y: auto;
+}
+
+/* Header section with welcome message and date display */
+.sdb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #f8fdff, #e3f2fd);
+  padding: 32px;
+  border-radius: 20px;
+  border-left: 6px solid #2196f3;
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.1);
+}
+
+.sdb-header-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1565c0;
+  margin: 0 0 8px;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+.sdb-header-subtitle {
+  font-size: 18px;
+  color: #2196f3;
+  margin: 0;
+  font-weight: 600;
+}
+
+.sdb-date-box {
+  background: #ffffff;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+  border: 2px solid #bbdefb;
+  color: #1565c0;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  min-width: 250px;
+}
+
+/* Section titles styling */
+.sdb-section-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1565c0;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Quick Actions Section */
+.sdb-quick-actions {
+  margin-bottom: 40px;
+}
+
+.sdb-quick-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Base card styling for quick actions */
+.sdb-card {
+  background: #ffffff;
+  padding: 28px 24px;
+  border-radius: 20px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.12);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sdb-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #2196f3, #42a5f5);
+}
+
+.sdb-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(33, 150, 243, 0.2);
+  border-color: #bbdefb;
+}
+
+/* Primary card variant */
+.sdb-card-primary:hover {
+  border-color: #64b5f6;
+}
+
+/* Alert card variant for notifications */
+.sdb-card-alert:hover {
+  border-color: #ffb74d;
+}
+
+/* Card icon styling */
+.sdb-card-icon {
+  font-size: 40px;
+  color: #2196f3;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.sdb-card:hover .sdb-card-icon {
+  transform: scale(1.1);
+}
+
+/* Card content text */
+.sdb-card-content h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1565c0;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sdb-card-content p {
+  font-size: 14px;
+  color: #2196f3;
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Notification badge for pending items */
+.sdb-notification-badge {
+  background: #ff5722;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 16px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  animation: sdb-pulse 2s infinite;
+  box-shadow: 0 2px 8px rgba(255, 87, 34, 0.4);
+}
+
+@keyframes sdb-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Statistics Overview Section */
+.sdb-stats-overview {
+  margin-bottom: 40px;
+}
+
+.sdb-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+/* Individual statistic cards */
+.sdb-stat-card {
+  background: #ffffff;
+  padding: 28px 24px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.12);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sdb-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+}
+
+.sdb-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(33, 150, 243, 0.2);
+}
+
+/* Stat card color variations */
+.sdb-total::before { background: #2196f3; }
+.sdb-total:hover { border-color: #64b5f6; }
+
+.sdb-pending::before { background: #ff9800; }
+.sdb-pending:hover { border-color: #ffcc80; }
+
+.sdb-progress::before { background: #9c27b0; }
+.sdb-progress:hover { border-color: #ce93d8; }
+
+.sdb-resolved::before { background: #4caf50; }
+.sdb-resolved:hover { border-color: #a5d6a7; }
+
+/* Stat icons */
+.sdb-stat-icon {
+  font-size: 40px;
+  opacity: 0.9;
+  transition: transform 0.3s ease;
+}
+
+.sdb-total .sdb-stat-icon { color: #2196f3; }
+.sdb-pending .sdb-stat-icon { color: #ff9800; }
+.sdb-progress .sdb-stat-icon { color: #9c27b0; }
+.sdb-resolved .sdb-stat-icon { color: #4caf50; }
+
+.sdb-stat-card:hover .sdb-stat-icon {
+  transform: scale(1.1);
+}
+
+/* Stat card content */
+.sdb-stat-number {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 800;
+  color: #1565c0;
+}
+
+.sdb-stat-label {
+  margin: 0;
+  font-size: 14px;
+  color: #2196f3;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Recent Complaints Section */
+.sdb-recent-complaints {
+  margin-bottom: 40px;
+}
+
+.sdb-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.sdb-view-all {
+  background: #2196f3;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.sdb-view-all:hover {
+  background: #1976d2;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(33, 150, 243, 0.4);
+}
+
+.sdb-recent-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+/* Individual complaint cards */
+.sdb-complaint-card {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.1);
+  border-left: 6px solid #2196f3;
+  transition: all 0.3s ease;
+}
+
+.sdb-complaint-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 10px 28px rgba(33, 150, 243, 0.15);
+}
+
+.sdb-complaint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+
+.sdb-complaint-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1565c0;
+  margin: 0;
+  flex: 1;
+  text-transform: capitalize;
+  line-height: 1.4;
+}
+
+.sdb-status-badge {
+  padding: 6px 12px;
+  border-radius: 16px;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.sdb-complaint-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sdb-complaint-type,
+.sdb-complaint-date {
+  font-size: 13px;
+  color: #666;
+}
+
+.sdb-complaint-type strong,
+.sdb-complaint-date strong {
+  color: #1565c0;
+  font-weight: 700;
+}
+
+.sdb-complaint-description {
+  margin: 0;
+  color: #424242;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Empty State */
+.sdb-empty-state {
+  text-align: center;
+  padding: 80px 40px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.08);
+}
+
+.sdb-empty-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+  opacity: 0.6;
+}
+
+.sdb-empty-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1565c0;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.sdb-empty-text {
+  font-size: 16px;
+  color: #2196f3;
+  margin: 0 0 30px;
+  font-weight: 600;
+}
+
+.sdb-cta-btn {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.sdb-cta-btn:hover {
+  background: linear-gradient(135deg, #45a049, #388e3c);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* Loading State */
+.sdb-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  color: #1565c0;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.sdb-spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #bbdefb;
+  border-top: 6px solid #2196f3;
+  border-radius: 50%;
+  animation: sdb-spin 1s linear infinite;
+  margin-bottom: 24px;
+}
+
+@keyframes sdb-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sdb-content {
+    margin-left: 0;
+    padding: 20px;
+    border-radius: 0;
+  }
+
+  .sdb-header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .sdb-date-box {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .sdb-quick-cards,
+  .sdb-stats-grid,
+  .sdb-recent-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .sdb-section-header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .sdb-complaint-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .sdb-complaint-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
